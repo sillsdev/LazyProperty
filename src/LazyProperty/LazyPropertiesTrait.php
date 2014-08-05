@@ -83,7 +83,13 @@ trait LazyPropertiesTrait
         return $this->$name;
     }
     
-    protected function & createProperty($name) {
+    public function getLazyProperties()
+    {
+    	return $this->lazyPropertyAccessors;
+    }
+    
+    protected function & createProperty($name)
+    {
     	return $this->$name = $this->{'get' . $name}();
     }
     
